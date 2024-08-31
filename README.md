@@ -44,13 +44,16 @@ Running Locally
     
     `src/main/resources/application.properties`
 
+
     `spring.datasource.url=jdbc:postgresql://localhost:5432/clinic_db`
 
 3.  Build the project:
 
+
     `mvn clean install`
 
 4.  Run the application:
+
 
     `java -jar target/medical-clinic-appointment-system.jar`
 
@@ -62,9 +65,11 @@ Running with Docker Compose
 1.  Make sure you have Docker and Docker Compose installed on your system.
 2.  Clone the repository:
 
+
     `git clone https://github.com/your-username/medical-clinic.git cd medical-clinic`
 
 3.  Build and run the containers:
+
 
     `docker-compose up --build`
 
