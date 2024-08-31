@@ -20,7 +20,7 @@ Technologies Used
 *   Spring Boot
 *   Spring Data JPA
 *   Hibernate
-*   PostgreSQL / MySQL
+*   MySQL
 *   Docker
 *   Swagger for API documentation
 
