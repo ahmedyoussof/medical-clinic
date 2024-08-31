@@ -1,6 +1,7 @@
 package medical.clinic.service;
 
 import lombok.RequiredArgsConstructor;
+import medical.clinic.exceptions.ResourceNotFoundException;
 import medical.clinic.model.Appointment;
 import medical.clinic.model.Patient;
 import medical.clinic.repository.AppointmentRepository;
@@ -51,7 +52,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment cancelAppointment(Long appointmentId, String reason) {
-        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow();
+        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow(() -> new ResourceNotFoundException("Appointment not found"));
         appointment.setStatus("Cancelled");
         appointment.setCancelReason(reason);
         return appointmentRepository.save(appointment);
