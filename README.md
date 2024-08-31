@@ -1,7 +1,5 @@
-Medical Clinic Appointment Management System
+Medical Clinic Appointments
 ============================================
-
-This project implements an appointment management system for a medical clinic with one doctor. The system allows the clinic admin to review appointments by date or patient, check patient history, add new appointments, and cancel appointments with reasons.
 
 Features
 --------
@@ -30,7 +28,7 @@ Prerequisites
 *   Java JDK 17 or later
 *   Maven
 *   Docker and Docker Compose (for containerized deployment)
-*   MySQL (for local deployment without Docker)
+*   MySQL (for local deployment without Docker) with created schema `clinicdb`
 
 Running Locally
 ---------------
