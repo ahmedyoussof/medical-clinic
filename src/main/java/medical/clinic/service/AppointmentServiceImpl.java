@@ -36,4 +36,14 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointment.setPatient(patient);
         return appointmentRepository.save(appointment);
     }
+
+    @Override
+    public List<Appointment> getAppointmentsByDate(LocalDateTime date) {
+        return appointmentRepository.findAppointmentsByDate(date);
+    }
+
+    @Override
+    public List<Appointment> getAppointmentsByPatientName(String patientName) {
+        return appointmentRepository.findAppointmentsByPatientName(patientName);
+    }
 }
