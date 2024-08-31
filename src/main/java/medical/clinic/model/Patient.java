@@ -16,6 +16,4 @@ public class Patient {
     private String name;
     private String contactInfo;
 
-    @OneToMany(mappedBy = "patient")
-    private Set<Appointment> appointments;
 }
