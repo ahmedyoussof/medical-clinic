@@ -3,17 +3,6 @@ Medical Clinic Appointment Management System
 
 This project implements an appointment management system for a medical clinic with one doctor. The system allows the clinic admin to review appointments by date or patient, check patient history, add new appointments, and cancel appointments with reasons.
 
-Table of Contents
------------------
-
-*   [Features](#features)
-*   [Technologies Used](#technologies-used)
-*   [Prerequisites](#prerequisites)
-*   [Running Locally](#running-locally)
-*   [Running with Docker Compose](#running-with-docker-compose)
-*   [API Documentation](#api-documentation)
-*   [Project Structure](#project-structure)
-
 Features
 --------
 
