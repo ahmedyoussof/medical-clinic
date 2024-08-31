@@ -9,7 +9,7 @@ public class AppointMapper {
         return Appointment.builder()
                 .id(appointmentDTO.getId())
                 .date(appointmentDTO.getDate())
-                .reason(appointmentDTO.getReason())
+                .cancelReason(appointmentDTO.getReason())
                 .status(appointmentDTO.getStatus())
                 .patient(Patient.builder()
                         .id(appointmentDTO.getPatientId())
@@ -21,7 +21,7 @@ public class AppointMapper {
         return AppointmentDTO.builder()
                 .id(appointment.getId())
                 .date(appointment.getDate())
-                .reason(appointment.getReason())
+                .reason(appointment.getCancelReason())
                 .status(appointment.getStatus())
                 .patientId(appointment.getPatient().getId())
                 .build();

@@ -18,7 +18,7 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime date;
-    private String reason;
+    private String cancelReason;
     private String status;
 
     @ManyToOne

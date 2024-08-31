@@ -48,4 +48,12 @@ public class AppointmentServiceImpl implements AppointmentService {
     public List<Appointment> getAppointmentsByPatientName(String patientName) {
         return appointmentRepository.findAppointmentsByPatientName(patientName);
     }
+
+    @Override
+    public Appointment cancelAppointment(Long appointmentId, String reason) {
+        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow();
+        appointment.setStatus("Cancelled");
+        appointment.setCancelReason(reason);
+        return appointmentRepository.save(appointment);
+    }
 }

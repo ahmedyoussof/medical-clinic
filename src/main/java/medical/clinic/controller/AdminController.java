@@ -58,6 +58,16 @@ public class AdminController {
         return ResponseEntity.ok(appointmentDTOs);
     }
 
+    // want to cancel appointment with reason
+    @PutMapping("/appointments/cancel/{appointmentId}")
+    public ResponseEntity<AppointmentDTO> cancelAppointment(@PathVariable Long appointmentId, @RequestBody String reason) {
+        Appointment appointment = appointmentService.cancelAppointment(appointmentId, reason);
+
+        AppointmentDTO appointmentDTO = AppointMapper.mapToAppointmentDTO(appointment);
+
+        return ResponseEntity.ok(appointmentDTO);
+    }
+
     @GetMapping("/appointments/patient/{patientId}")
     public ResponseEntity<List<AppointmentDTO>> getAppointmentsByPatientId(@PathVariable Long patientId) {
         List<Appointment> appointments = appointmentService.getAppointmentsByPatientId(patientId);

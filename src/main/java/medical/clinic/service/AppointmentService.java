@@ -16,4 +16,6 @@ public interface AppointmentService {
     List<Appointment> getAppointmentsByDate(LocalDate date);
 
     List<Appointment> getAppointmentsByPatientName(String patientName);
+
+    Appointment cancelAppointment(Long appointmentId, String reason);
 }
