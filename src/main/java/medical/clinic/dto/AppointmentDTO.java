@@ -1,8 +1,10 @@
 package medical.clinic.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NonNull;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +25,7 @@ public class AppointmentDTO {
     @Schema(example = "Scheduled")
     private String status;
 
+    @NotNull
     @Schema(example = "123")
     private Long patientId;
 }

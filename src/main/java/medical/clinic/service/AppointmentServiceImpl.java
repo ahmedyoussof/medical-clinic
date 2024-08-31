@@ -2,6 +2,7 @@ package medical.clinic.service;
 
 import lombok.RequiredArgsConstructor;
 import medical.clinic.model.Appointment;
+import medical.clinic.model.Patient;
 import medical.clinic.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class AppointmentServiceImpl implements AppointmentService {
 
     private final AppointmentRepository appointmentRepository;
+    private final PatientService patientService;
 
     @Override
     public List<Appointment> getTodayAppointments() {
@@ -30,6 +32,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment saveAppointment(Appointment appointment) {
+        Patient patient = patientService.findById(appointment.getPatient().getId());
+        appointment.setPatient(patient);
         return appointmentRepository.save(appointment);
     }
 }

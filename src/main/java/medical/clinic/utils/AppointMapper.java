@@ -2,6 +2,7 @@ package medical.clinic.utils;
 
 import medical.clinic.dto.AppointmentDTO;
 import medical.clinic.model.Appointment;
+import medical.clinic.model.Patient;
 
 public class AppointMapper {
     public static Appointment mapToAppointment(medical.clinic.dto.AppointmentDTO appointmentDTO) {
@@ -10,6 +11,9 @@ public class AppointMapper {
                 .date(appointmentDTO.getDate())
                 .reason(appointmentDTO.getReason())
                 .status(appointmentDTO.getStatus())
+                .patient(Patient.builder()
+                        .id(appointmentDTO.getPatientId())
+                        .build())
                 .build();
     }
 
