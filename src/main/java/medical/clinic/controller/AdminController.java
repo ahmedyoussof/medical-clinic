@@ -60,7 +60,7 @@ public class AdminController {
 
     // want to cancel appointment with reason
     @PutMapping("/appointments/cancel/{appointmentId}")
-    public ResponseEntity<AppointmentDTO> cancelAppointment(@PathVariable Long appointmentId, @RequestBody String reason) {
+    public ResponseEntity<AppointmentDTO> cancelAppointment(@PathVariable Long appointmentId, @RequestParam String reason) {
         Appointment appointment = appointmentService.cancelAppointment(appointmentId, reason);
 
         AppointmentDTO appointmentDTO = AppointMapper.mapToAppointmentDTO(appointment);
