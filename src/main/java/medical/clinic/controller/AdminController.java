@@ -1,7 +1,5 @@
 package medical.clinic.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
 import medical.clinic.dto.AppointmentDTO;
 import medical.clinic.model.Appointment;
@@ -11,8 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -44,7 +41,7 @@ public class AdminController {
     }
 
     @GetMapping("/appointments/filter/date/{date}")
-    public ResponseEntity<List<AppointmentDTO>> getAppointmentsByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date) {
+    public ResponseEntity<List<AppointmentDTO>> getAppointmentsByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
         List<Appointment> appointments = appointmentService.getAppointmentsByDate(date);
 
         List<AppointmentDTO> appointmentDTOs = appointments.stream().map(AppointMapper::mapToAppointmentDTO).toList();

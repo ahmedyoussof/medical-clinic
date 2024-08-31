@@ -16,9 +16,9 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     @Query("SELECT a FROM Appointment a WHERE a.patient.id = :patientId")
     List<Appointment> findByPatientId(@Param("patientId") Long patientId);
 
-    @Query("SELECT a FROM Appointment a WHERE a.date = :date")
-    List<Appointment> findAppointmentsByDate(@Param("date") LocalDateTime date);
+    @Query("SELECT a FROM Appointment a WHERE a.date BETWEEN :startOfDay AND :endOfDay")
+    List<Appointment> findAppointmentsByDate(@Param("startOfDay") LocalDateTime startOfDay, @Param("endOfDay") LocalDateTime endOfDay);
 
-    @Query("SELECT a FROM Appointment a WHERE a.patient.name LIKE :patientName")
+    @Query("SELECT a FROM Appointment a WHERE a.patient.name LIKE %:patientName%")
     List<Appointment> findAppointmentsByPatientName(@Param("patientName") String patientName);
 }

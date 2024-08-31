@@ -2,7 +2,7 @@ package medical.clinic.service;
 
 import medical.clinic.model.Appointment;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface AppointmentService {
@@ -13,7 +13,7 @@ public interface AppointmentService {
 
     Appointment saveAppointment(Appointment appointment);
 
-    List<Appointment> getAppointmentsByDate(LocalDateTime date);
+    List<Appointment> getAppointmentsByDate(LocalDate date);
 
     List<Appointment> getAppointmentsByPatientName(String patientName);
 }

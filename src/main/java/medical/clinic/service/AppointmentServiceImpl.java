@@ -38,8 +38,10 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<Appointment> getAppointmentsByDate(LocalDateTime date) {
-        return appointmentRepository.findAppointmentsByDate(date);
+    public List<Appointment> getAppointmentsByDate(LocalDate date) {
+        LocalDateTime startOfDay = date.atTime(LocalTime.MIN);
+        LocalDateTime endOfDay = date.atTime(LocalTime.MAX);
+        return appointmentRepository.findAppointmentsByDate(startOfDay, endOfDay);
     }
 
     @Override
